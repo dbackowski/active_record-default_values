@@ -1,4 +1,4 @@
-# ActiveRecord::DefaultValues
+# ActiveRecord::DefaultValues [![Build Status](https://travis-ci.org/dbackowski/active_record-default_values.svg?branch=master)](https://travis-ci.org/dbackowski/active_record-default_values)
 
 Add default values to Active Record models.
 
