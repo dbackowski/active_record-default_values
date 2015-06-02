@@ -7,9 +7,9 @@ module ActiveRecord
 
     class_methods do
       def default_value(attr_name, default_value, **options)
-        after_initialize do
+        after_initialize if: :new_record? do
           value = default_value.respond_to?(:call) ? default_value.call : default_value
-          send("#{attr_name}=", value) if send(attr_name).send(options[:if] || :nil?) && new_record?
+          send("#{attr_name}=", value) if send(attr_name).send(options[:if] || :nil?)
         end
       end
     end
