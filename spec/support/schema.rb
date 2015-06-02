@@ -7,5 +7,6 @@ ActiveRecord::Schema.define do
     t.boolean :active
     t.timestamp :add_time
     t.integer :age
+    t.text :description, default: ''
   end
 end

@@ -69,4 +69,18 @@ describe ActiveRecord::DefaultValues do
       expect(@user.age).to eq 30
     end
   end
+
+  context 'when :description is blank' do
+    it 'set default value to :description' do
+      expect(@user.description).to eq 'Test'
+    end
+  end
+
+  context 'when :description is not blank' do
+    it 'doesn\'t set default value to :description' do
+      @user.description = 'Test 2'
+      expect(@user.description).to eq 'Test 2'
+    end
+  end
+
 end

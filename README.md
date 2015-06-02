@@ -27,11 +27,12 @@ class User < ActiveRecord::Base
   default_value :active, false
   default_value :add_time, -> { Time.now }
   default_value :age, 20
+  default_value :description, 'Test', if: :blank?
 end
 
-User.new(first_name: 'Samwise')
+User.new(first_name: 'Samwise', description: '')
 
-=> #<User id: nil, first_name: "Samwise", last_name: "Doe", add_time: "2015-05-27 15:35:32", active: false, age: 20>
+=> #<User id: nil, first_name: "Samwise", last_name: "Doe", add_time: "2015-05-27 15:35:32", active: false, age: 20, description: "Test">
 ```
 
 ## Contributing

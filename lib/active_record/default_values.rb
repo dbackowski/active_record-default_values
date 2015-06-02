@@ -6,10 +6,10 @@ module ActiveRecord
     extend ActiveSupport::Concern
 
     class_methods do
-      def default_value(attr_name, default_value)
+      def default_value(attr_name, default_value, **options)
         after_initialize do
           value = default_value.respond_to?(:call) ? default_value.call : default_value
-          send("#{attr_name}=", value) if send(attr_name).nil? && new_record?
+          send("#{attr_name}=", value) if send(attr_name).send(options[:if] || :nil?) && new_record?
         end
       end
     end
